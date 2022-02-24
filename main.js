@@ -1,19 +1,16 @@
-for(let i=0; i<3; i++){
-    (function test(o){
-        alert(o)
-    })(i)
-}
+const test = 5 && 6; //6
+
+const sample =  0 && false && null; //0
+
+console.log(test)
+
+console.log(sample)
 
 
-//let: throws an error "Cannot access before initialization" because let doesn't have hoisting
+// const test = 5 || 6;
 
-/*
-test()
+// const sample =  0 || false || null;
 
-function test(){
-    console.log("I am a function")
-}
+// console.log(test)
 
-result = the function is executed successfull. In hoisting for a function, this whole declaration of 
-function will be hoisted
-*/
+// console.log(sample)
