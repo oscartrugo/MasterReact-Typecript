@@ -1,33 +1,33 @@
-const orig = ['avocado', 'apple', {name: 'strawberry'}]
+const fruits = [undefined, 'guava', 'coconout'];
 
-const copy = JSON.parse(JSON.stringify(orig));
+const [firstFruit = 'strawberry', ...otherFruits] = fruits
 
-copy[2].name = 'coconut'
+console.log(firstFruit)
+console.log(otherFruits)
+//---------------------------------------------------------------------------
+// const fruits = ['apple', 'avocado']
 
-console.log('orig: ', orig)
+// const newFruits = [...fruits, 'guava']
 
-console.log('copy: ', copy)
-
-
-// const orig = {
-//     test: 'test', 
-//     userDetails: {
-//         address: {
-//             province: 'Province',
-//             country: 'country'
-//         },
-//         name: 'myObject'
-//     },
-//     myFn: () => {},
-//     undef: undefined,
+// console.log('fruits', fruits)
+// console.log('newFruits', newFruits)
+//---------------------------------------------------------------------------
+// const userDetails = {
+//     name: 'Oscar',
+//     address: 'Mexico',
+//     sample: {
+//         test: 'test'
+//     }
 // }
 
-// const copy = JSON.parse(JSON.stringify(orig));
-// //const copy = Object.assign({}, orig)
-// // const copy = orig; // newTest
+// const {name: newName = 'Trujillo', ...otherDetails} = userDetails
 
-// copy.userDetails.name = "newName";
-// //copy.test = 'newTest';
+// console.log(newName)
+// console.log(otherDetails)
 
-// console.log('orig: ', orig)
-// console.log('copy', copy);
+// const newUserDetails = { ...userDetails, mobileNumber: 123}
+
+// newUserDetails.sample.test = 'newTest';
+
+// console.log('userDetails: ', userDetails)
+// console.log('newUserDetails: ', newUserDetails)
