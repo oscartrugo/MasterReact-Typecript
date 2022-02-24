@@ -1,39 +1,33 @@
-let sample = { name: 'Oscar'};
+const orig = ['avocado', 'apple', {name: 'strawberry'}]
 
-let copySample = sample;
+const copy = JSON.parse(JSON.stringify(orig));
 
-sample.test = 'test';
+copy[2].name = 'coconut'
 
-console.log("sample: ", sample) //10
+console.log('orig: ', orig)
 
-console.log('copySample', copySample) //5
-//----------------------------------------------------
-// let sample = 5;
-
-// let copySample = sample;
-
-// sample = 10;
-
-// console.log("sample: ", sample) //10
-
-// console.log('copySample', copySample) //5
-//----------------------------------------------------
-
-// const test = 5 && 6; //6
-
-// const sample =  0 && false && null; //0
-
-// console.log(test)
-
-// console.log(sample)
-
-//-----------------------------------------------------
+console.log('copy: ', copy)
 
 
-// const test = 5 || 6;
+// const orig = {
+//     test: 'test', 
+//     userDetails: {
+//         address: {
+//             province: 'Province',
+//             country: 'country'
+//         },
+//         name: 'myObject'
+//     },
+//     myFn: () => {},
+//     undef: undefined,
+// }
 
-// const sample =  0 || false || null;
+// const copy = JSON.parse(JSON.stringify(orig));
+// //const copy = Object.assign({}, orig)
+// // const copy = orig; // newTest
 
-// console.log(test)
+// copy.userDetails.name = "newName";
+// //copy.test = 'newTest';
 
-// console.log(sample)
+// console.log('orig: ', orig)
+// console.log('copy', copy);
