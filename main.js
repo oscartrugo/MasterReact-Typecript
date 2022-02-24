@@ -1,45 +1,27 @@
-class Shape {
-    #privateVariable = 'privateVariable'
-    publicVariable = 'publicVariable'
-    static staticVariable = 'staticVariable'
+class Printer{
+    name= "I am Printer Class" //public variable
 
-    constructor(height, width){ //height and width are private variables
-        this.height = height; //declaring public variable
-        this.width = width; //declaring public variable
+    printName(){
+        console.log('printName: ', this.name);
     }
 
-    getArea(){
-        return 'not implemented'
-    }
-
-    getPrivateData(){
-        return this.#privateVariable; //Value fetched of a private variable
+    printNameArrowFn = () => {
+        console.log('printNameArrowFn: ', this.name);
     }
 }
 
-class Square extends Shape{
-    getArea(){
-        return this.height * this.width
-    }
+const myPrinter = new Printer();
+// myPrinter.printName()
+// myPrinter.printNameArrowFn()
 
-    getParentClassArea(){
-        return super.getArea(); //Calling a parent attribute in the child class
-    }
+const customPrinter = {
+    name: "I am Custom Printer",
+    printName: myPrinter.printName,
+    printNameArrowFn: myPrinter.printNameArrowFn,
 }
 
-const mySquare = new Square(5, 8);
-
-console.log(mySquare.getPrivateData())
-//console.log(mySquare.getParentClassArea())
-
-//const myShape = new Shape(5, 10);
-
-// console.log(myShape.height)
-// console.log(myShape.width)
-// //we can access a public variable
-// console.log(myShape.publicVariable)
-//Calling an static variable
-//console.log(Shape.staticVariable)
+//customPrinter.printName();
+customPrinter.printNameArrowFn();
 
 /**
  * When to use a static variable? And when to use a public variable?
@@ -57,4 +39,7 @@ console.log(mySquare.getPrivateData())
  * If you have a data that you actually use, for example, computing the area, and you don't want to expose 
  * that data on how you compute the area, then you can actually create a private variable, so that the user
  * of the shape class or the square class doesn't know how you calculate the value of the getArea
+ * 
+ * If we are using Arrow function, it doesn't care whether you actually execute the funciton. What matters
+ * most is where you created the arrow function, the scope.
  */;
