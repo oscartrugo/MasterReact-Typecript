@@ -1,18 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CounterManagement from './components/CounterManagement';
+import UsersManagement from './components/UsersManagement';
+import { Instruction } from './components/Instruction';
 
-class App extends React.Component {
-  render(){
-    return(
-      <>
-        <h1>My App</h1>
-        <CounterManagement ownerName='Oscar'/>
-      </>
-    )
-  }
+function App() {
+  return (
+    <div className="App">
+      <Instruction />
+      <UsersManagement />
+    </div>
+  );
 }
-
 
 export default App;
