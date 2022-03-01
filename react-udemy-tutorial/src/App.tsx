@@ -1,34 +1,45 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Fruits from './components/Fruits';
+import SuperComponent from './components/SuperComponent';
+import { Input } from './components/Input';
 
-export const App: React.FC = () => {
-  return (
-    <React.Fragment>
-      <h1>My App</h1>
-      <Fruits />
-    </React.Fragment>
-  );
+class App extends React.Component {
+  // inputRef: HTMLInputElement | null;
+  inputRef: React.RefObject<HTMLInputElement>
+
+  constructor(props: {}) {
+    super(props);
+
+    // callbackRef initialize
+    // this.inputRef = null;
+
+    this.inputRef = React.createRef();
+  }
+
+  componentDidMount() {
+    // callbackRef
+    // console.log(this.inputRef);
+    // this.inputRef && this.inputRef.focus();
+
+    this.inputRef.current && this.inputRef.current.focus();
+  }
+
+  // callback ref
+  // getInputRef = (element: HTMLInputElement) => {
+  //   this.inputRef = element;
+  // }
+
+  render() {
+    return (
+      <React.Fragment>
+        <h1>My App</h1>
+        <input ref={this.inputRef} />
+        <SuperComponent />
+        <Input />
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
-
-/**
- *          KEYS
- * Las Keys ayudan a React a identificar qué items han sido cambiados, agregados
- * o eliminados.
- * 
- * Deben ser dados a los elementos dentro del arreglo para dar a los elementos
- * una identidad estable.
- * 
- * Sólo tienen que ser únicas entre sus hermanos.
- * 
- * Solo son necesarias en el elemento top en el array
- * 
- * Las Keys a veces son un boost de performance, por ejemplo
- * 
- * 
- * 
- * 
- */
