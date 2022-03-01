@@ -1,18 +1,34 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import TrackClick from './components/TrackClick';
-import { Profile } from './components/Profile';
-import { NewsFeed } from './components/NewsFeed';
+import Fruits from './components/Fruits';
 
 export const App: React.FC = () => {
   return (
     <React.Fragment>
       <h1>My App</h1>
-      <TrackClick renderProps={(click) => <Profile click={click} />} />
-      <TrackClick renderProps={(click) => <NewsFeed click={click} />} />
+      <Fruits />
     </React.Fragment>
   );
 }
 
 export default App;
+
+/**
+ *          KEYS
+ * Las Keys ayudan a React a identificar qué items han sido cambiados, agregados
+ * o eliminados.
+ * 
+ * Deben ser dados a los elementos dentro del arreglo para dar a los elementos
+ * una identidad estable.
+ * 
+ * Sólo tienen que ser únicas entre sus hermanos.
+ * 
+ * Solo son necesarias en el elemento top en el array
+ * 
+ * Las Keys a veces son un boost de performance, por ejemplo
+ * 
+ * 
+ * 
+ * 
+ */
