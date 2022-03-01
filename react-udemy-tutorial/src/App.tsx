@@ -43,3 +43,25 @@ class App extends React.Component {
 }
 
 export default App;
+/**
+ * En algunos casos querrás acceder al nodo de tu elemento para hacer
+ * algo(por ejemplo, hacer focus u obtener una posición)
+ * 
+ * Puedes utilizar Vanilla(eje: querySelector), pero hay una forma en React
+ * para hacer esto.
+ * 
+ */
+
+/**
+ *    REFS
+ * Refs provee una forma de acceder a los nodos del DOM o elementos React creados
+ * en el render method.
+ * 
+ * Los refs objects son actualizados dentro del componentDidMount y componentDidUpdate.
+ * 
+ * Algunos buenos casos de uso:
+ * - Manejando enfoque, text selection o media playback
+ * - Obteniendo la posición de un elemento
+ * - Activando animaciones imperativas.
+ * - Integrando con librerías DOM de terceros
+ */
