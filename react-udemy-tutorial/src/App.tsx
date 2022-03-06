@@ -4,15 +4,34 @@ import './App.css';
 import HomePage from './components/HomePage';
 import { MyContext, MyContextProvider } from './context/MyContext';
 
-function App() {
-  return (
-      <MyContextProvider>
-        <HomePage />
-      </MyContextProvider>
+function App(){
+  return(
+    //Solo aquellos componentes dentro de MyContext.Provider puede acceder al value "dark"
+    //Si quitamos el MyContext.Provider, el theme por default sería "light", debido a que si los componentes
+    //no tienen un padre provider, entonces usará el valor default del context, que se encuentra en MyContext.tsx
+    <MyContextProvider> {/** Para el provider es necesario pasar un value*/}
+      <HomePage/>
+    </MyContextProvider>
   );
 }
 
 export default App;
+
+// import React from 'react';
+// import logo from './logo.svg';
+// import './App.css';
+// import HomePage from './components/HomePage';
+// import { MyContext, MyContextProvider } from './context/MyContext';
+
+// function App() {
+//   return (
+//       <MyContextProvider>
+//         <HomePage />
+//       </MyContextProvider>
+//   );
+// }
+
+// export default App;
 
 
 /**
