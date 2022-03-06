@@ -1,11 +1,13 @@
 .instruction-container {
-    margin-right: 200px;
+    margin-right: 0px;
     font-size: 18px;
-    width: 800px;
+    width: 0px;
     border-right: 10px solid black;
     padding-right: 100px;
     box-sizing: border-box;
     padding-left: 50px;
+    height: 0px;
+    overflow-y: scroll;
 }
 
 .instruction-container li {
