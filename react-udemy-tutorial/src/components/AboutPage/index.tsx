@@ -6,7 +6,6 @@ class AboutPage extends React.Component<AboutPageProps> {
         return (
             <div>
                 <h1> About Page </h1>
-                <p>Name: {this.props.match.params.username}</p>
             </div>
         )
     }
