@@ -1,50 +1,45 @@
 import React from 'react';
-import { MyContext } from '../../context/MyContext';
-import UserInput from '../UserInput';
+import { HomePageState } from './interface';
 
-class HomePage extends React.Component {
-    //Consumimos el value del MyContext.Provider del index
-    static contextType = MyContext;
-    context!: React.ContextType<typeof MyContext>; //Añadimos un type para this.context, el ! significa que este context nunca será null o undefined
+const OddComponent = React.lazy(() => import('../OddComponent'));
+const EvenComponent = React.lazy(() => import('../EvenComponent'));
+
+class HomePage extends React.Component<{}, HomePageState> {
+    constructor(props: {}) {
+        super(props);
+
+        this.state = {
+            counter: 0,
+            hasError: false,
+        }
+    }
+
+    updateCounter = () => {
+        this.setState({
+            counter: this.state.counter + 1
+        })
+    }
+
+    static getDerivedStateFromError() {
+        return {
+            hasError: true
+        }
+    }
+
     render() {
+        const { counter, hasError } = this.state;
+
         return (
             <div>
-                <h1>Home Page</h1>
-                <ul> {/** Iteramos los distintos usuarios e imprimimos en una lista */}
-                    {this.context.users.map(user => <li key={user}>{user}</li> )}
-                </ul>
-                <button onClick={() => this.context.updateUsers("Raul")}>Add user</button> {/** Añade usuario desde el Home Page */}
-                <UserInput/>
+                <h1> Home Page </h1>
+                {hasError ? <h1>Error Occurs</h1> :<React.Suspense fallback={<div>Loading...</div>}>
+                    {counter % 2 === 0 ? <EvenComponent /> : <OddComponent />}
+                </React.Suspense>}
+                <button onClick={this.updateCounter}>Change Component</button>
             </div>
+
         )
     }
 }
 
 export default HomePage;
-
-
-
-
-// import React from 'react';
-// import { MyContext } from '../../context/MyContext';
-// import UserInput from '../UserInput';
-
-// class HomePage extends React.Component {
-//     static contextType = MyContext;
-//     context!: React.ContextType<typeof MyContext>;
-
-//     render() {
-//         return (
-//             <div>
-//                 <h1> Home Page </h1> {/** Header del componente HomePage */}
-//                 <ul>
-//                     {this.context.users.map(user => <li key={user}>{user}</li>)}
-//                 </ul>
-//                 <button onClick={() => this.context.updateUser('bella')}>Add User</button>
-//                 <UserInput />
-//             </div>
-//         )
-//     }
-// }
-
-// export default HomePage;
