@@ -2,12 +2,10 @@
     margin-right: 0px;
     font-size: 18px;
     width: 0px;
-    border-right: 10px solid black;
+    border-right: 0px solid black;
     padding-right: 100px;
     box-sizing: border-box;
     padding-left: 50px;
-    height: 0px;
-    overflow-y: scroll;
 }
 
 .instruction-container li {
