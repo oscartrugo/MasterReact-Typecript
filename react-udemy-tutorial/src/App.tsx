@@ -1,20 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import HomePage from './components/HomePage';
-import { Router, Route, Switch, Redirect } from 'react-router';
-import AboutPage from './components/AboutPage';
-import { BrowserRouter, Link } from 'react-router-dom';
-
+import { Instruction } from './components/Instruction';
+import RoutingPractice from './components/RoutingPractice';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route component={AboutPage} path="/about" />
-        <Route component={HomePage} path="/" />
-      </Switch>
-    </BrowserRouter>
+    <div className="App">
+      <Instruction />
+      <RoutingPractice />
+    </div>
   );
 }
 

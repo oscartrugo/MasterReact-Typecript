@@ -1,0 +1,13 @@
+.instruction-container {
+    margin-right: 0px;
+    font-size: 18px;
+    width: 0px;
+    border-right: 0px solid black;
+    padding-right: 0px;
+    box-sizing: border-box;
+    padding-left: 0px;
+}
+
+.instruction-container li {
+    margin-bottom: 10px;
+}

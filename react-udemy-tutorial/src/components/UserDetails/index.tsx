@@ -6,6 +6,7 @@ class UserDetails extends React.Component<RouteComponentProps> {
         return (
             <div>
                 <h1> User Details </h1>
+                <p>Hola desde User Details component</p>
             </div>
         )
     }
