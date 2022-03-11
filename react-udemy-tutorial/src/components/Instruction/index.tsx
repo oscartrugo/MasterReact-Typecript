@@ -4,31 +4,16 @@ import './style.css';
 export const Instruction: React.FC = () => {
     return (
         <div className="instruction-container">
-            {/* <h1>Create Routing for an Application</h1>
+            <h1>Create Note App Using Redux</h1>
             <ol>
-                <li>Create reusable <strong>Button Component</strong> that will be used for login button.</li>
-                <li>Create reusable <strong>Input Component</strong> that will be used for username and password.</li>
-                <li>Create <strong>Header Navigation Component</strong> that contains links so user can go to home or about page.</li>
-                <li>
-                    Create 3 Pages
-                    <ul>
-                        <li>Login Page - /login</li>
-                        <li>About Page - /about</li>
-                        <li>Home Page - /</li>
-                    </ul>
-                </li>
-                <li>If user is not logged in, it can only navigate to Login Page.</li>
-                <li>
-                    When the user successfully logged in:
-                    <ul>
-                        <li>User will be redirected to Home Page</li>
-                        <li>Header Navigation Component will appear so user can go to Home or About Page.</li>
-                        <li>Logout Button will appear.</li>
-                    </ul>
-                </li>
-                <li>User cannot go to login page again once logged in. You can use cookies/session/local storage.</li>
-                <li>Clicking Logout Button will log you out and redirected to Login Page.</li>
-            </ol> */}
+                <li>Create reusable <strong>Button Component</strong>.</li>
+                <li>Create reusable <strong>Input Component</strong>.</li>
+                <li>Create reusable <strong>Textarea Component</strong>.</li>
+                <li>Create reusable <strong>Modal Component</strong>.</li>
+                <li>Use <strong>Redux</strong> to do <strong>CRUD</strong> for <strong>Note App</strong>.</li>
+                <li>Use Modals to view/add/edit a Note.</li>
+                <li>Show a prompt when deleting a note.</li>
+            </ol>
         </div>
     )
 }
