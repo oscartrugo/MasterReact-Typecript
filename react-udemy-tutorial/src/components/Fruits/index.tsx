@@ -1,6 +1,7 @@
 import React from 'react';
 import { FruitsDispatchProps, FruitsOwnProps, FruitsProps, FruitsStateProps } from './interface';
 import { connect, MapDispatchToPropsFunction, MapStateToProps } from 'react-redux';
+import { rootReducer } from '../../reducer/rootReducer';
 
 class Fruits extends React.Component<FruitsProps> {
 
@@ -9,6 +10,7 @@ class Fruits extends React.Component<FruitsProps> {
     }
 
     render() {
+        console.log('Fruits Render Called');
         const { ownerName, fruits } = this.props;
         return (
             <div>
@@ -23,9 +25,10 @@ class Fruits extends React.Component<FruitsProps> {
     }
 }
 
-const mapStateToProps: MapStateToProps<FruitsStateProps, FruitsOwnProps, string[]> = (state, ownProps) => {
+const mapStateToProps: MapStateToProps<FruitsStateProps, FruitsOwnProps, ReturnType<typeof rootReducer>> = (state, ownProps) => {
+    console.log('Fruits Map State Props Called');
     return {
-        fruits: state
+        fruits: state.fruits
     }
 }
 
