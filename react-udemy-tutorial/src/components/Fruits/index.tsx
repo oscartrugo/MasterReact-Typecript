@@ -4,7 +4,7 @@ import { connect, MapDispatchToPropsFunction, MapStateToProps } from 'react-redu
 import { rootReducer, StoreStateStype } from '../../store/reducer/rootReducer';
 import FruitsActions from '../../store/action/fruitsAction';
 import { CustomDispatch } from '../../store/middlewares/customMiddleware';
-import { FruitsReducerAction } from '../../store/reducer/fruitsReducer';
+import { FruitsReducerAction, fruitsWithO } from '../../store/reducer/fruitsReducer';
 
 class Fruits extends React.Component<FruitsProps> {
 
@@ -31,7 +31,7 @@ class Fruits extends React.Component<FruitsProps> {
 const mapStateToProps: MapStateToProps<FruitsStateProps, FruitsOwnProps, ReturnType<typeof rootReducer>> = (state, ownProps) => {
     console.log('Fruits Map State Props Called');
     return {
-        fruits: state.fruits
+        fruits: fruitsWithO(state)
     }
 }
 

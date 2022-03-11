@@ -1,5 +1,6 @@
 import { Reducer } from "redux";
 import FruitsActions from "../action/fruitsAction";
+import { createSelector } from 'reselect';
 import { StoreStateStype } from "./rootReducer";
 
 export interface FruitsReducerAction {
@@ -15,3 +16,11 @@ export const fruitsReducer: Reducer<string[], FruitsReducerAction> = (state = []
             return state;
     }
 }
+
+export const fruitsWithO = createSelector<StoreStateStype, string[], string[]> (
+    (state) => state.fruits,
+    fruits => {
+        console.log('recomputed');
+        return fruits.filter(fruit => fruit.includes('o'));
+    }
+)
