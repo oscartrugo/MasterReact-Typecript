@@ -1,0 +1,16 @@
+import { Reducer } from "redux";
+import Fruits from "../components/Fruits";
+
+export interface FruitsAction{
+    type: string;
+    fruits: string[];
+}
+
+export const fruitsReducer: Reducer<string[], FruitsAction> = (state = [], action) =>{
+    switch(action.type){
+        case "ADD_FRUIT":
+            return [...state, ...action.fruits];
+        default:
+            return state;
+    }
+}
