@@ -6,6 +6,7 @@
 .pnp.js
 /default
 /routing
+/my-app
 
 # testing
 /coverage

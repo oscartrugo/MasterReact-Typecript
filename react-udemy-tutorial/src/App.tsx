@@ -1,24 +1,26 @@
 import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import HomePage from './components/HomePage';
-import AboutPage from './components/AboutPage';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { createStore } from 'redux';
-import { fruitsReducer } from './reducer/fruitsReducer';
+import { Instruction } from './components/Instruction';
+import HomePage from './containers/HomePage';
 import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { rootReducer } from './store/rootReducer';
 
-const store = createStore(fruitsReducer, ["apple", "avocado"]);
-
+const store = createStore(rootReducer, {
+  notes: [
+    { id: '123', title: 'Attack On Titan', content: 'Eren Jaeger', createdDate: '2021-03-30T07:54:17.176Z', modifiedDate: '2021-03-30T07:54:17.176Z' },
+    { id: '12345', title: 'My Hero Acadamia', content: 'Deku', createdDate: '2021-03-30T07:54:17.176Z', modifiedDate: '2021-03-30T07:54:17.176Z' }
+  ]
+});
 
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-          <Switch>
-            <Route component={AboutPage} path="/about" />
-            <Route component={HomePage} path="/" />
-          </Switch>
-      </BrowserRouter>
+      <div className="App">
+        <Instruction />
+        <HomePage />
+      </div>
     </Provider>
   );
 }
