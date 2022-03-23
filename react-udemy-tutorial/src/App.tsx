@@ -14,7 +14,7 @@ const store = createStore(rootReducer, { users: ['Rysh', 'May'], fruits: ['apple
 function App() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename='/test'>
           <Switch>
             <Route component={AboutPage} path="/about" />
             <Route component={HomePage} path="/" />
