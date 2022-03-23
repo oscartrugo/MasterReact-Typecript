@@ -9,7 +9,7 @@ import { rootReducer } from './store/reducer/rootReducer';
 import { anotherMiddleware } from './store/middlewares/anotherMiddleware';
 import { customMiddleware } from './store/middlewares/customMiddleware';
 
-const store = createStore(rootReducer, { users: ['Rysh', 'May'], fruits: ['apple', 'avocado'] }, applyMiddleware(customMiddleware, anotherMiddleware));
+const store = createStore(rootReducer, (window as any).initialState, applyMiddleware(customMiddleware, anotherMiddleware));
 
 function App() {
   return (

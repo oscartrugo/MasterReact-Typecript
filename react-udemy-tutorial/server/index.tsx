@@ -10,13 +10,14 @@ import { createStore, applyMiddleware } from 'redux';
 import { customMiddleware } from '../src/store/middlewares/customMiddleware';
 import { anotherMiddleware } from '../src/store/middlewares/anotherMiddleware';
 import { rootReducer } from '../src/store/reducer/rootReducer';
+import serialize from 'serialize-javascript';
 
 const app = express();
 
 const htmlFile = path.join(__dirname, '../build/index.html'); //__dirname es el path en el directorio para el server
 const htmlContent = fs.readFileSync(htmlFile, { encoding: 'utf-8'});
-
-const store = createStore(rootReducer, { users: ['Rysh', 'May'], fruits: ['apple', 'avocado'] }, applyMiddleware(customMiddleware, anotherMiddleware));
+const initialState = { users: ['Rysh', 'May'], fruits: ['apple', 'avocado', '</script><script>window.confirm()</script>'] };
+const store = createStore(rootReducer, initialState, applyMiddleware(customMiddleware, anotherMiddleware));
 
 
 
@@ -33,7 +34,11 @@ app.get('*', (req, res) => {
           </StaticRouter>
         </Provider>
     );
-    res.send(htmlContent.replace('<div id="root"></div>', `<div id="root">${reactComponentsString}</div>`));
+    res.send(htmlContent
+      .replace('<div id="root"></div>', `<div id="root">${reactComponentsString}</div>`)
+      .replace('window.initialState=null', 'window.initialState=${serialize(initialState)}')
+      
+      );
 });
 
 app.listen(7777); //server
